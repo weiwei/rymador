@@ -7,8 +7,8 @@ interface Word {
   nsyl: number;
 }
 
-const PROD_URL="https://rimer.herokuapp.com";
-const DEV_URL="http://localhost:8000";
+const PROD_URL = "https://rimer.herokuapp.com";
+const DEV_URL = "http://localhost:8000";
 
 const sortByNsyl = (data: Word[]) => {
   let result: Record<number, Word[]> = {};
@@ -82,22 +82,27 @@ const IndexPage = () => {
 
   return (
     <Layout title="Home | Rymador">
-      <h1 className="h1">Rymador</h1>
+      <h1 className="text-2xl text-center m-4">Rymador - Search for rhyming words in Spanish</h1>
       <div className="">
         <form onSubmit={fetchWords}>
-          <div>
+          <div className="flex border-grey-light border">
             <input
-              className="form-input mt-1"
+              className="w-full rounded ml-1"
               type="search"
               onChange={(e) => setWord(e.target.value)}
               value={word}
             />
-            <input type="submit" className="ml-6" />
+            <input
+              type="submit"
+              value="Search"
+              className="bg-grey-lightest border-grey border-l shadow hover:bg-grey-lightest"
+            />
           </div>
           <div className="mt-2">
             <label className="inline-flex items-center">
               {"Frequency"}
-              <select className="ml-2"
+              <select
+                className="ml-2"
                 onChange={(e) => setFreq(Number(e.target.value))}
                 defaultValue={freq}
               >
@@ -111,7 +116,8 @@ const IndexPage = () => {
             </label>
             <label className="inline-flex items-center ml-6">
               {"No. of Syllables"}
-              <select className="ml-2"
+              <select
+                className="ml-2"
                 onChange={(e) => setNsyl(Number(e.target.value))}
                 defaultValue={nsyl}
               >
@@ -124,8 +130,8 @@ const IndexPage = () => {
               </select>
             </label>
           </div>
-          <div className="mt-4">
-            <span className="text-gray-700">Rhyme type:</span>
+          <div className="flex">
+            <span className="mt-2 mr-6">Rhyme type:</span>
             <div className="mt-2">
               <label htmlFor="c" className="inline-flex items-center">
                 <input
@@ -161,7 +167,7 @@ const IndexPage = () => {
                   defaultChecked={seseo}
                   onChange={(e) => setSeseo(e.target.checked)}
                 />
-                <span className="ml-2">{"Seseo (c,z = s)"}</span>
+                <span className="ml-2">{"seseo"}</span>
               </label>
               <label className="inline-flex items-center ml-6">
                 <input
@@ -169,9 +175,9 @@ const IndexPage = () => {
                   defaultChecked={yeismo}
                   onChange={(e) => setYeismo(e.target.checked)}
                 />
-                <span className="ml-2">{"Yeismo (y = ll)"}</span>
+                <span className="ml-2">{"yeismo"}</span>
               </label>
-              <label className="inline-flex items-center ml-12">
+              <label className="inline-flex items-center ml-6">
                 <input
                   type="checkbox"
                   defaultChecked={eqbv}
@@ -182,7 +188,7 @@ const IndexPage = () => {
             </div>
           )}
         </form>
-        <hr className="mt-6 mb-6" />
+        {freq_keys.length > 0 && <hr className="mt-6 mb-6" />}
         {freq_keys.map((k) => {
           return (
             <div key={k}>
@@ -192,7 +198,7 @@ const IndexPage = () => {
               <ul className="flex flex-wrap">
                 {words[k].map((w) => (
                   <li
-                  key={w.word}
+                    key={w.word}
                     className={`m-1 p-1 bg-purple-600 ${calcOpacity(
                       w.freq
                     )} text-white`}

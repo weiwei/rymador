@@ -87,7 +87,7 @@ const IndexPage = () => {
         <form onSubmit={fetchWords}>
           <div className="flex border-grey-light border">
             <input
-              className="w-full rounded ml-1"
+              className="w-full rounded pl-1.5"
               type="search"
               onChange={(e) => setWord(e.target.value)}
               value={word}

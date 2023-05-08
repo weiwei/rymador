@@ -7,7 +7,7 @@ interface Word {
   nsyl: number;
 }
 
-const PROD_URL = "https://rimer.herokuapp.com";
+const PROD_URL = "https://rimer.fly.dev";
 const DEV_URL = "http://localhost:8000";
 
 const sortByNsyl = (data: Word[]) => {

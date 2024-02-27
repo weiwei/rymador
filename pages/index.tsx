@@ -7,8 +7,8 @@ interface Word {
   nsyl: number;
 }
 
-const PROD_URL = "https://rimer.fly.dev";
-const DEV_URL = "http://localhost:8000";
+// const PROD_URL = "https://rimer.fly.dev";
+const PROD_URL = "http://localhost:8000";
 
 const sortByNsyl = (data: Word[]) => {
   let result: Record<number, Word[]> = {};

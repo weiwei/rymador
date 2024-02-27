@@ -34,9 +34,7 @@ const Layout = ({
     {children}
     <footer className="mt-auto">
     <hr className="mt-6 mb-6" />
-      <Link href="/about">
-        <a>About</a>
-      </Link>{" "}
+      <Link href="/about">About</Link>
     </footer>
   </div>
 );

@@ -7,7 +7,7 @@ const AboutPage = () => (
     <p>The service is written in rust and the frontend nextjs. That's all for now folks.</p>
     <p className="mt-5">
       <Link href="/">
-        <a>Go home</a>
+        <div>Go home</div>
       </Link>
     </p>
   </Layout>

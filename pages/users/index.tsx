@@ -20,7 +20,7 @@ const WithStaticProps = ({ items }: Props) => (
     <List items={items} />
     <p>
       <Link href="/">
-        <a>Go home</a>
+        <div>Go home</div>
       </Link>
     </p>
   </Layout>
